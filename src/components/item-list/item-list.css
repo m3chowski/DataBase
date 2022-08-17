@@ -1,0 +1,7 @@
+.item-list {
+  display: grid;
+  margin-top: 50px;
+  margin-left: 250px;
+  margin-right: 250px;
+  grid-template-columns: repeat(5, 1fr);
+}
