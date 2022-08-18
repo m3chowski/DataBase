@@ -1,0 +1,15 @@
+.header {
+  margin-left: 250px;
+  margin-top: 20px;
+  margin-bottom: -50px;
+  display: grid;
+  grid-template-columns: 1100px 0px;
+}
+.header h2 {
+  margin-top: -10px;
+}
+.header-buttons img {
+  display: grid;
+  width: 100px;
+  height: 100%;
+}

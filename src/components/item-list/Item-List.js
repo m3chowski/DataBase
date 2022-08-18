@@ -1,23 +1,32 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCharacters } from "../../store/slices/charactersSlice";
 import { ItemBlock } from "../item-block/Item-Block";
+
 import "./item-list.css";
 
 export const ItemList = () => {
-  const [item, setItem] = useState([]);
+  const { characters, loading, isSeries } = useSelector(
+    (state) => state.characters
+  );
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios
-      .get("https://www.breakingbadapi.com/api/characters?limit=15&offset=")
-      .then(({ data }) => setItem(data));
-  }, []);
-
-  console.log(item);
+    const fetchChars = `?category=${isSeries}`;
+    dispatch(fetchCharacters({ fetchChars }));
+  }, [isSeries]);
 
   return (
     <div className="item-list">
-      {item.map((el) => (
-        <ItemBlock key={el.char_id} {...el} />
-      ))}
+      {!loading ? (
+        characters.map((el) => (
+          <Link to="/">
+            <ItemBlock key={el.char_id} {...el} />
+          </Link>
+        ))
+      ) : (
+        <p>loading</p>
+      )}
     </div>
   );
 };
