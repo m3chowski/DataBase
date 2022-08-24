@@ -1,5 +1,6 @@
 .item-list {
   display: grid;
+  width: 1430px;
   margin-top: 50px;
   margin-left: 250px;
   margin-right: 250px;

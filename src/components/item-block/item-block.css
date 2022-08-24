@@ -6,14 +6,18 @@
   height: 300px;
   display: grid;
 }
+a {
+  cursor: default;
+}
 
 .item-block:hover {
   opacity: 1;
 }
 
 .item-block img {
+  cursor: pointer;
   height: 300px;
-  width: 100%;
+  width: 220px;
   object-fit: cover;
   overflow: hidden;
 }

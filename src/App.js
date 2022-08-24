@@ -3,6 +3,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/header/Header";
+import { CharactersPage } from "./pages/Characters-Page/Characters-Page";
 
 export const App = () => {
   const theme = createTheme({
@@ -19,6 +20,7 @@ export const App = () => {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/character/:id" element={<CharactersPage />} />
             <Route path="*" element={<Navigate to={"/"} replace />} />
           </Routes>
         </div>

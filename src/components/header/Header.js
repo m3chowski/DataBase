@@ -5,6 +5,7 @@ import { setSeries } from "../../store/slices/charactersSlice";
 import { useDispatch } from "react-redux";
 
 import "./header.css";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const series = [
@@ -25,7 +26,9 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="header-logo">
-        <h2>Breaking Bad DB</h2>
+        <Link to="/">
+          <h2>Breaking Bad DB</h2>
+        </Link>
       </div>
       <div className="header-buttons">
         <ButtonGroup variant="inherit">
