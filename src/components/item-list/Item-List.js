@@ -7,10 +7,11 @@ import { ItemBlock } from "../item-block/Item-Block";
 import "./item-list.css";
 
 export const ItemList = () => {
+  const dispatch = useDispatch();
   const { characters, loading, isSeries } = useSelector(
     (state) => state.characters
   );
-  const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchChars = `?category=${isSeries}`;
     dispatch(fetchCharacters({ fetchChars }));
@@ -19,11 +20,7 @@ export const ItemList = () => {
   return (
     <div className="item-list">
       {!loading ? (
-        characters.map((el) => (
-          <Link to="/">
-            <ItemBlock key={el.char_id} {...el} />
-          </Link>
-        ))
+        characters.map((el, index) => <ItemBlock key={index} {...el} />)
       ) : (
         <p>loading</p>
       )}

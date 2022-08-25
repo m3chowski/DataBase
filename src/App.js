@@ -1,27 +1,30 @@
 import React from "react";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { CharPage } from "./pages/Characters-Page";
+import { Header } from "./components/header";
+import { CharacterInfoPage } from "./pages/Character-Info-Page";
 import { Home } from "./pages/Home/Home";
-import { Header } from "./components/header/Header";
-import { CharactersPage } from "./pages/Characters-Page/Characters-Page";
 
 export const App = () => {
+  const { pathname } = useLocation();
   const theme = createTheme({
     palette: {
       mode: "dark",
     },
   });
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div>
-        <Header />
+        {pathname !== "/" && <Header />}
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/character/:id" element={<CharactersPage />} />
-            <Route path="*" element={<Navigate to={"/"} replace />} />
+            <Route path="/characters" element={<CharPage />} />
+            <Route path="/characters/:category" element={<CharPage />} />
+            <Route path="/character/:id" element={<CharacterInfoPage />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </div>
       </div>

@@ -6,16 +6,24 @@ module.exports = {
   entry: "./src/index.js",
 
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname + "/dist"),
+    publicPath: "/",
     filename: "bundle.js",
   },
-
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+    static: {
+      directory: path.join(__dirname, "/"),
+    },
+    port: 8081,
+    open: true,
+  },
 
   module: {
     rules: [

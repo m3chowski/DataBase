@@ -1,12 +1,10 @@
 import React from "react";
-import { ItemList } from "../../components/item-list/Item-List";
-import { RandomCharacter } from "../../components/random-character";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div>
-      <RandomCharacter />
-      <ItemList />
-    </div>
+    <Link to={"/characters"}>
+      <div>Go to characters</div>
+    </Link>
   );
 };

@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   characters: [],
   loading: false,
-  isSeries: "Better Call Saul",
+  isSeries: "breaking bad",
 };
 
 export const fetchCharacters = createAsyncThunk(
@@ -17,7 +17,6 @@ export const fetchCharacters = createAsyncThunk(
     return data;
   }
 );
-
 const charactersSlice = createSlice({
   name: "characters",
   initialState,

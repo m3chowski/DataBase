@@ -1,8 +1,28 @@
 .random-character {
-  outline: auto;
+  outline: solid;
+  outline-width: thin;
   width: 1360px;
-  height: 250px;
+  height: 320px;
   margin-top: 75px;
   margin-left: 250px;
   margin-right: 310px;
+  display: grid;
+  grid-template-columns: 250px 600px;
+  font-size: 16px;
+}
+.random-character-img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  height: 300px;
+  width: 220px;
+  object-fit: cover;
+  overflow: hidden;
+}
+.random-character-img img {
+  height: 300px;
+}
+
+.random-character-info {
+  margin-top: -15px;
 }
