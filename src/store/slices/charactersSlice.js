@@ -4,7 +4,6 @@ import axios from "axios";
 const initialState = {
   characters: [],
   loading: false,
-  isSeries: "breaking bad",
 };
 
 export const fetchCharacters = createAsyncThunk(
@@ -20,11 +19,7 @@ export const fetchCharacters = createAsyncThunk(
 const charactersSlice = createSlice({
   name: "characters",
   initialState,
-  reducers: {
-    setSeries: (state, action) => {
-      state.isSeries = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchCharacters.pending]: (state) => {
       state.loading = true;
@@ -36,5 +31,4 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setSeries } = charactersSlice.actions;
 export default charactersSlice.reducer;

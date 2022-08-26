@@ -1,15 +1,14 @@
 import React from "react";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { Button } from "@mui/material";
-import { setSeries } from "../../store/slices/charactersSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { Button } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
+import { setSeries } from "../../store/slices/navigationSlice";
+import { Navigate } from "../navigation";
 import "./header.css";
 
 export const Header = () => {
   const dispatch = useDispatch();
-
   const series = [
     {
       id: 0,
@@ -33,6 +32,7 @@ export const Header = () => {
           <h2>Breaking Bad DB</h2>
         </Link>
       </div>
+      <Navigate />
       <div className="header-buttons">
         <ButtonGroup variant="inherit">
           {series.map(({ category, img, id }) => (

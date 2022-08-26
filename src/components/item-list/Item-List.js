@@ -8,9 +8,8 @@ import "./item-list.css";
 
 export const ItemList = () => {
   const dispatch = useDispatch();
-  const { characters, loading, isSeries } = useSelector(
-    (state) => state.characters
-  );
+  const { characters, loading } = useSelector((state) => state.characters);
+  const { isSeries } = useSelector((state) => state.navigation);
 
   useEffect(() => {
     const fetchChars = `?category=${isSeries}`;

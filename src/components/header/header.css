@@ -3,7 +3,7 @@
   margin-top: 20px;
   margin-bottom: -50px;
   display: grid;
-  grid-template-columns: 1100px 0px;
+  grid-template-columns: 250px 850px 10px;
 }
 .header a {
   text-decoration: none;
