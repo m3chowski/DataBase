@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setPage } from "../../store/slices/navigationSlice";
@@ -9,8 +9,6 @@ export const Navigate = () => {
   const onClickSetPage = (page) => {
     dispatch(setPage(page));
   };
-  const location = useParams();
-  console.log(location);
   const nav = [
     {
       nav: "/characters",

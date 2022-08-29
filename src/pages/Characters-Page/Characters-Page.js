@@ -1,12 +1,12 @@
 import React from "react";
-import { ItemList } from "../../components/item-list/Item-List";
+import { CharacterList } from "../../components/character-list";
 import { RandomCharacter } from "../../components/random-character";
 
 export const CharPage = () => {
   return (
     <div>
       <RandomCharacter />
-      <ItemList />
+      <CharacterList />
     </div>
   );
 };

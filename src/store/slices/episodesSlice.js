@@ -9,9 +9,9 @@ const initialState = {
 export const fetchEpisodes = createAsyncThunk(
   "episodes/fetchEpisodes",
   async (params) => {
-    const { fetchEpisode } = params;
+    const { episodesCategory } = params;
     const { data } = await axios.get(
-      `https://www.breakingbadapi.com/api/episodes${fetchEpisode}`
+      `https://www.breakingbadapi.com/api/episodes${episodesCategory}`
     );
     return data;
   }

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isSeries: "breaking bad",
+  isSeries: "Breaking Bad",
   page: "characters",
 };
 
