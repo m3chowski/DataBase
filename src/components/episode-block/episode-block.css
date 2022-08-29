@@ -1,0 +1,14 @@
+.episode-block {
+  margin-top: 25px;
+  width: 1350px;
+  height: 120px;
+  outline: auto;
+  padding-left: 20px;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 200px 500px;
+}
+
+.episode-block-info {
+  margin-top: 22px;
+}
