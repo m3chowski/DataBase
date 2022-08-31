@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navigate } from "../navigation";
 import { SeriesSelector } from "../series-selector";
 
 import "./header.css";
 
 export const Header = () => {
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <div className="header">
       <div className="header-logo">
@@ -14,7 +16,7 @@ export const Header = () => {
         </Link>
       </div>
       <Navigate />
-      <SeriesSelector />
+      {pathname !== "/" && <SeriesSelector />}
     </div>
   );
 };

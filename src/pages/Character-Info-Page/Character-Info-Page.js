@@ -1,28 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getInfo } from "../../utility/api/api";
 import "./character-info-page.css";
 
 export const CharacterInfoPage = () => {
-  const { id } = useParams();
-  const [character, setCharacter] = useState("");
+  const { name } = useParams();
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const getData = `characters?name=${name}`;
   useEffect(() => {
-    axios
-      .get(`https://www.breakingbadapi.com/api/characters/${id}`)
-      .then(({ data }) => setCharacter(data[0]));
+    getInfo({ setItem, setLoading, getData });
   }, []);
-  const {
-    birtday,
-    category,
-    img,
-    name,
-    nickname,
-    occupation,
-    portrayed,
-    status,
-  } = character;
+  const { img, nickname, occupation, portrayed, status } = item;
 
-  return (
+  return !loading ? (
     <div className="character-info">
       <div className="character-info-img">
         <img src={img} />
@@ -32,13 +24,15 @@ export const CharacterInfoPage = () => {
         <p>Nickname: {nickname}</p>
         <p>
           Occupation:
-          {occupation?.map((el) => (
-            <ul>{el}</ul>
+          {occupation.map((el, index) => (
+            <li key={index}> {el}</li>
           ))}
         </p>
         <p>Portrayed: {portrayed}</p>
         <p>Status: {status}</p>
       </div>
     </div>
+  ) : (
+    <div className="character-info">loading....</div>
   );
 };

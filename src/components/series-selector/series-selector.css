@@ -1,0 +1,9 @@
+.header-buttons {
+  display: grid;
+  grid-template-columns: 130px 130px;
+}
+
+.header-buttons img {
+  width: 100px;
+  height: 60px;
+}

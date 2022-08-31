@@ -2,10 +2,11 @@ import React from "react";
 import { setSeries } from "../../store/slices/navigationSlice";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import "./series-selector.css";
 
 export const SeriesSelector = () => {
+  const { isSeries } = useSelector((state) => state.navigation);
   const dispatch = useDispatch();
   const series = [
     {
@@ -25,13 +26,16 @@ export const SeriesSelector = () => {
 
   return (
     <div className="header-buttons">
-      <ButtonGroup variant="inerhit">
-        {series.map(({ category, img, id }) => (
-          <Button onClick={() => onClickSetSeries(category)} key={id}>
-            <img src={img} />
-          </Button>
-        ))}
-      </ButtonGroup>
+      {series.map(({ category, img, id }) => (
+        <Button
+          variant={isSeries === category ? "outlined" : "text"}
+          color="inherit"
+          onClick={() => onClickSetSeries(category)}
+          key={id}
+        >
+          <img src={img} />
+        </Button>
+      ))}
     </div>
   );
 };

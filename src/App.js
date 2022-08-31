@@ -6,6 +6,7 @@ import { Header } from "./components/header";
 import { CharacterInfoPage } from "./pages/Character-Info-Page";
 import { Home } from "./pages/Home";
 import { EpisodesPage } from "./pages/Episodes-Page";
+import { EpisodeInfoPage } from "./pages/Episode-Info-Page/Episode-Info-Page";
 
 export const App = () => {
   const theme = createTheme({
@@ -23,10 +24,9 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/characters" element={<CharPage />} />
-            <Route path="/characters/:category" element={<CharPage />} />
-            <Route path="/character/:id" element={<CharacterInfoPage />} />
+            <Route path="/character/:name" element={<CharacterInfoPage />} />
             <Route path="/episodes" element={<EpisodesPage />} />
-            <Route path="/episodes/:category" element={<EpisodesPage />} />
+            <Route path="/episodes/:id" element={<EpisodeInfoPage />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </div>

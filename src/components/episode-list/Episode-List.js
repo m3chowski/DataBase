@@ -14,8 +14,6 @@ export const EpisodeList = () => {
     dispatch(fetchEpisodes({ episodesCategory }));
   }, [isSeries]);
 
-  !loading ? console.log(episodes[0]) : console.log(loading);
-
   return (
     <div className="episode-list">
       <h2>Series: {isSeries}</h2>

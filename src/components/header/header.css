@@ -17,8 +17,3 @@
 .header h2 {
   margin-top: -10px;
 }
-.header-buttons img {
-  display: grid;
-  width: 100px;
-  height: 60px;
-}
