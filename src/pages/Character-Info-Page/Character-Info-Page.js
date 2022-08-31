@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { QuoteChar } from "../../components/quote-char/Quote-Char";
 import { getInfo } from "../../utility/api/api";
 import "./character-info-page.css";
 
@@ -30,6 +31,10 @@ export const CharacterInfoPage = () => {
         </p>
         <p>Portrayed: {portrayed}</p>
         <p>Status: {status}</p>
+      </div>
+      <div>
+        <QuoteChar />
+        {status !== "Alive" && <span>lol</span>}
       </div>
     </div>
   ) : (

@@ -1,6 +1,6 @@
 .character-info {
   display: grid;
-  grid-template-columns: 350px 550px;
+  grid-template-columns: 350px 350px 550px;
   margin: 50px;
   margin-left: 250px;
 }
