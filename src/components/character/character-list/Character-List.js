@@ -10,7 +10,6 @@ export const CharacterList = () => {
   const dispatch = useDispatch();
   const { characters, loading } = useSelector((state) => state.characters);
   const { isSeries } = useSelector((state) => state.navigation);
-
   useEffect(() => {
     const fetchChars = `?category=${isSeries}`;
     dispatch(fetchCharacters({ fetchChars }));
