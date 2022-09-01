@@ -15,3 +15,7 @@ export const getQuote = ({ getData, setItem, setLoading }) => {
     .then(({ data }) => setItem(data))
     .then(() => setLoading(false));
 };
+
+export const getRandChar = (setChar) => {
+  axios.get(URL_API + "character/random").then((res) => setChar(res.data[0]));
+};
