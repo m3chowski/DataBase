@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchEpisodes } from "../../../store/slices/episodesSlice";
 import { EpisodeBlock } from "../episode-block";
 import "./episode-list.css";
+import { SceletonEpisode } from "../../../utility/sceletons/Sceleton-Episode";
 
 export const EpisodeList = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const EpisodeList = () => {
       {!loading ? (
         episodes.map((el, index) => <EpisodeBlock key={index} {...el} />)
       ) : (
-        <p>loading</p>
+        <SceletonEpisode className="episode-list" />
       )}
     </div>
   );

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCharacters } from "../../../store/slices/charactersSlice";
 import { CharacterBlock } from "../character-block";
-
+import { Sceleton } from "../../../utility/sceletons/Sceleton-Characters";
 import "./character-list.css";
 
 export const CharacterList = () => {
@@ -20,7 +19,7 @@ export const CharacterList = () => {
       {!loading ? (
         characters.map((el, index) => <CharacterBlock key={index} {...el} />)
       ) : (
-        <p>loading</p>
+        <Sceleton className="item-list" />
       )}
     </div>
   );

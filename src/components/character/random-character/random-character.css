@@ -1,7 +1,5 @@
 .random-character {
-  /* outline: solid; */
   background-color: rgb(26, 26, 26);
-
   outline-width: thin;
   width: 1360px;
   height: 320px;
@@ -28,4 +26,12 @@
 
 .random-character-info {
   margin-top: -15px;
+}
+
+.sceleton-random {
+  width: 1360px;
+  height: 320px;
+  margin-top: 75px;
+  margin-left: 250px;
+  margin-right: 310px;
 }

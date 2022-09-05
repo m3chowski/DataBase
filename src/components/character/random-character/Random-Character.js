@@ -4,15 +4,20 @@ import "./random-character.css";
 
 export const RandomCharacter = () => {
   const [char, setChar] = useState("");
+  const [loading, setLoading] = useState(false);
+  const getData = "character/random";
+
   useEffect(() => {
-    getRandChar(setChar);
-    setInterval(getRandChar, 60000);
+    getRandChar({ getData, setChar, setLoading });
+    setInterval(() => {
+      getRandChar({ getData, setChar, setLoading });
+    }, 20000);
     return clearInterval();
   }, []);
 
   const { img, name, nickname, occupation, status } = char;
 
-  return char ? (
+  return loading ? (
     <div className="random-character">
       <div className="random-character-img">
         <img src={img} />
@@ -30,8 +35,6 @@ export const RandomCharacter = () => {
       </div>
     </div>
   ) : (
-    <div className="random-character">
-      <h4>loading...</h4>
-    </div>
+    <div className="random-character"></div>
   );
 };

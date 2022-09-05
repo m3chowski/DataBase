@@ -7,13 +7,30 @@ import "./episode-info.css";
 
 export const EpisodeInfo = () => {
   const { id } = useParams();
+  const getData = `episodes/${id}`;
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState("");
-  const getData = `episodes/${id}`;
   useEffect(() => {
     getInfo({ setItem, getData, setLoading });
   }, [id]);
+
   const { characters, episode, season, series, title, air_date } = item;
+  const name = characters?.map((char) => {
+    switch (char) {
+      case "Krazy-8":
+        return "Domingo Molina";
+      case "Hank Schrader":
+        return "Henry Schrader";
+      case "Ken Wins":
+        return "Ken";
+      case "Nacho":
+        return "Ignacio Varga";
+      case "Badger":
+        return "Brandon Mayhew";
+      default:
+        return char;
+    }
+  });
 
   return !loading ? (
     <div className="episode-info">
@@ -26,9 +43,9 @@ export const EpisodeInfo = () => {
       </div>
       <div className="episode-info-char">
         <h3>Characters</h3>
-        {characters.map((name) => (
-          <Link to={`/character/${name}`}>
-            <Button color="inherit">{name}</Button>
+        {name.map((el) => (
+          <Link to={`/character/${el}`}>
+            <Button color="inherit">{el}</Button>
           </Link>
         ))}
       </div>
